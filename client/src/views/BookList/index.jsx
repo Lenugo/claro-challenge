@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { Container, Row, Col, Button } from "react-bootstrap"
-import './styles.css'
 import BookCard from '../../components/Card'
 import BookModal from '../../components/BookModal'
 import LoadingSpinner from '../../components/Spinner'
@@ -9,7 +8,7 @@ const BookList = () => {
   const [booksList, setBooksList] = useState([])
   const [isLoading, setIsLoading] = useState(false)
   const [showAddModal, setShowAddModal] = useState(false)
-  const [currentBook] = useState(null);
+  const [currentBook] = useState('')
 
   const baseUrl = import.meta.env.VITE_API_KEY;
 

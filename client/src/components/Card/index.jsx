@@ -73,10 +73,8 @@ const BookCard = ({ bookData, onDelete, onUpdate }) => {
 
 export default BookCard
 
-
 BookCard.propTypes = {
   bookData: PropTypes.object,
   onDelete: PropTypes.func,
   onUpdate: PropTypes.func
 }
-

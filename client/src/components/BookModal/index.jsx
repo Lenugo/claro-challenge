@@ -16,10 +16,10 @@ function BookModal(props) {
         const formattedPublishDate = book.publishDate?.split('T')[0]
         setValues({ ...book, publishDate: formattedPublishDate })
       } else {
-        console.error('Error fetching book data');
+        console.error('Error obteniendo los datos')
       }
     } catch (error) {
-      console.error('Error:', error);
+      console.error('Error:', error)
     }
   }
 
@@ -64,7 +64,7 @@ function BookModal(props) {
     e.preventDefault();
     const url = `${import.meta.env.VITE_API_KEY}/Books`
     let response;
-    const bookData = { ...values, id: props.id ? parseInt(props.id) : Date.now(), publishDate: formatDateToISO(values.publishDate) }
+    const bookData = { ...values, id: props.id ? parseInt(props.id) : 0, publishDate: formatDateToISO(values.publishDate) }
 
     if (props.modalType === 'add') {
       response = await fetch(url, {
@@ -165,6 +165,6 @@ BookModal.propTypes = {
   excerpt: PropTypes.string,
   publishDate: PropTypes.string,
   pageCount: PropTypes.number,
-  modalType: PropTypes.string,
+  modalType: PropTypes.object || PropTypes.string,
   onUpdate: PropTypes.func
 }
